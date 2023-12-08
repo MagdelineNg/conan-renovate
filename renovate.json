@@ -18,7 +18,7 @@
     "regexManagers": [
       {
         "customType": "regex",
-        "fileMatch": ["^source/common/config/mac/GeneralUserDefined_test.xconfig$"],
+        "fileMatch": ["^package.json$"],
         "matchStringsStrategy": "any",
         "matchStrings": [
           "\/\/\\s*(?<depName>\\w+)\n\\w+(?:_\\w+)*\\s+=\\s+(?<currentValue>.*)"          
