@@ -1,0 +1,36 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+    ],
+    "prHourlyLimit": 0,
+    "prConcurrentLimit": 10,
+    "dependencyDashboard": true,
+    "labels": [
+    "renovate"
+    ],
+    "major": {
+      "dependencyDashboardApproval": true
+    },
+    "conan": {
+      "enabled": true
+    },
+    "regexManagers": [
+      {
+        "customType": "regex",
+        "fileMatch": ["^source/common/config/mac/GeneralUserDefined_test.xconfig$"],
+        "matchStringsStrategy": "any",
+        "matchStrings": [
+          "\/\/\\s*(?<depName>\\w+)\n\\w+(?:_\\w+)*\\s+=\\s+(?<currentValue>.*)"          
+        ],
+        "datasourceTemplate": "conan",
+        "versioningTemplate": "semver"
+      }  
+    ],
+    "packageRules": [
+      {
+        "matchManagers": ["conan", "nuget", "npm", "pip_setup", "pip_requirements", "pip-compile", "gitlabci", "github-actions"],
+        "groupName": "{{manager}}"
+      }
+  ]
+}
